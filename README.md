@@ -6,11 +6,11 @@ Online map service with all hiking trails in Switzerland. Easy planning of hikes
 
 ### Bug reports and feature requests
 
-Do you feel like something is missing? Or did you encounter a bug? Please report it by opening a [new Issue](https://github.com/Pascalco/hikingmap/issues/new). Thanks
+Do you feel like something is missing? Or did you encounter a bug? Please report it by opening a [new Issue](https://github.com/Pascalco/hikingmap/issues/new). Thanks.
 
 ### License
 
-This project is licensed under the terms of the Creative Commons Attribution Share Alike 4.0 International license
+This project is licensed under the terms of the Creative Commons Attribution Share Alike 4.0 International license.
 
 ### Screenshots
 
