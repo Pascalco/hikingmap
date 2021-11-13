@@ -1,0 +1,260 @@
+# t-rex configuration
+
+[service.mvt]
+viewer = true
+
+[[datasource]]
+dbconn = "postgresql://postgres:4FWkWd5aX3K7d28b@localhost/wanderwege"
+name = "dbconn"
+default = true
+
+[grid]
+# Predefined grids: web_mercator, wgs84
+predefined = "web_mercator"
+
+
+[[tileset]]
+name = "wanderwege"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "wanderwege"
+table_name = "map_edges"
+geometry_field = "geom"
+geometry_type = "LINESTRING"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT geom FROM map_edges WHERE type = 'Wanderweg' AND (geom && !bbox!)"""
+minzoom = 8 
+maxzoom = 16
+
+
+[[tileset.layer]]
+name = "bergwanderwege"
+table_name = "map_edges"
+geometry_field = "geom"
+geometry_type = "LINESTRING"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT geom FROM map_edges WHERE type = 'Bergwanderweg' AND (geom && !bbox!)"""
+minzoom = 8 
+maxzoom = 16
+
+
+[[tileset.layer]]
+name = "alpinwanderwege"
+table_name = "map_edges"
+geometry_field = "geom"
+geometry_type = "LINESTRING"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT geom FROM map_edges WHERE type = 'Alpinwanderweg' AND (geom && !bbox!)"""
+minzoom = 8 
+maxzoom = 16
+
+[[tileset]]
+name = "waterfall"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "waterfall"
+table_name = "map_points"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT geom, id FROM map_points WHERE sublayer = 'waterfall' AND (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 16
+
+[[tileset]]
+name = "restaurant"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "restaurant"
+table_name = "map_points"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM restaurant1000 WHERE (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 9
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM restaurant5000 WHERE (geom && !bbox!)"""
+minzoom = 10
+maxzoom = 10
+[[tileset.layer.query]]
+sql = """SELECT geom, id FROM map_points WHERE sublayer = 'restaurant' AND (geom && !bbox!)"""
+minzoom = 11
+maxzoom = 16
+
+[[tileset]]
+name = "firepit"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "firepit"
+table_name = "map_points"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM firepit1000 WHERE (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 9
+[[tileset.layer.query]]
+sql = """SELECT geom, id FROM map_points WHERE sublayer = 'firepit' AND (geom && !bbox!)"""
+minzoom = 10
+maxzoom = 16
+
+[[tileset]]
+name = "bench"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "bench"
+table_name = "map_points"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM bench1000 WHERE (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 9
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM bench5000 WHERE (geom && !bbox!)"""
+minzoom = 10
+maxzoom = 10
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM bench15000 WHERE (geom && !bbox!)"""
+minzoom = 11
+maxzoom = 11
+[[tileset.layer.query]]
+sql = """SELECT geom, id FROM map_points WHERE sublayer = 'bench' AND (geom && !bbox!)"""
+minzoom = 12
+maxzoom = 16
+
+[[tileset]]
+name = "castle"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "castle"
+table_name = "features"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT geom, id FROM map_points WHERE sublayer = 'castle' AND (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 16
+
+
+[[tileset]]
+name = "viewpoint"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "viewpoint"
+table_name = "map_points"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM viewpoint1000 WHERE (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 9
+[[tileset.layer.query]]
+sql = """SELECT geom, id FROM map_points WHERE sublayer = 'viewpoint' AND (geom && !bbox!)"""
+minzoom = 10
+maxzoom = 16
+
+[[tileset]]
+name = "webcam"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "webcam"
+table_name = "map_points"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM webcam1000 WHERE (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 9
+[[tileset.layer.query]]
+sql = """SELECT geom, id FROM map_points WHERE layer = 'webcam' AND (geom && !bbox!)"""
+minzoom = 10
+maxzoom = 16
+
+
+[[tileset]]
+name = "station"
+extent = [5.96438, 45.81937, 10.55886, 47.77210]
+
+[[tileset.layer]]
+name = "station"
+table_name = "map_points"
+geometry_field = "geom"
+geometry_type = "POINT"
+srid = 3857
+buffer_size = 2
+simplify = true
+query_limit = 100000
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM station1000 WHERE (geom && !bbox!)"""
+minzoom = 8
+maxzoom = 9
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM station5000 WHERE (geom && !bbox!)"""
+minzoom = 10
+maxzoom = 10
+[[tileset.layer.query]]
+sql = """SELECT DISTINCT ON(cid) cid, geom, id FROM station15000 WHERE (geom && !bbox!)"""
+minzoom = 11
+maxzoom = 11
+[[tileset.layer.query]]
+sql = """SELECT geom, id, sublayer FROM map_points WHERE layer = 'station' AND (geom && !bbox!)"""
+minzoom = 12
+maxzoom = 16
+
+[cache.file]
+base = "/var/www/hikingmap/tmp/mvtcache"
+
+[webserver]
+bind = "0.0.0.0"
+port = 6767
+threads = 4

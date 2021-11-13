@@ -1,0 +1,52 @@
+{
+  "name": "Hiking Map",
+  "short_name": "Hiking Map",
+  "start_url": ".",
+  "display": "fullscreen",
+  "background_color": "#fbc200",
+  "theme_color": "#fbc200",
+  "description": "Swiss map with all hiking trails",
+  "icons": [
+    {
+      "src": "pics/appicons/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "pics/appicons/homescreen48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pics/appicons/homescreen96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pics/appicons/homescreen168.png",
+      "sizes": "168x168",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pics/appicons/homescreen256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pics/appicons/homescreen512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "pics/appicons/homescreen1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
