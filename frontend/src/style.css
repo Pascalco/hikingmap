@@ -472,25 +472,9 @@ h4 {
   color: #000;
 }
 
-/* contact */
-.contact {
-  margin: 10px auto;
-  padding: 10px;
-  width: 450px;
-  border: 1px solid black;
-  border-radius: 3px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-}
-
 /* mobile devices */
 @media screen and (max-width: 600px) {
   .searchbox {
-    width: 95%;
-  }
-}
-
-@media screen and (max-width: 410px) {
-  .contact {
     width: 95%;
   }
 }

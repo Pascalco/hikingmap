@@ -1,12 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer nprint">
+      <footer className="footer noprint">
         <span>
-          <Link to="/contact">Kontakt | Datenquellen</Link>
+          <a href="/contact.html">Kontakt | Datenquellen</a>
         </span>
       </footer>
     );
